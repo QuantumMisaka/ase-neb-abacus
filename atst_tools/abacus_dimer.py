@@ -2,12 +2,14 @@
 # Dimer calculation workflow by using ABACUS calculator
 # part of ATST-Tools scripts
 
+import os
+import sys
+
+import numpy as np
 from ase.io import Trajectory, read, write
 from ase.mep import DimerControl, MinModeAtoms, MinModeTranslate
 #from my_dimer import DimerControl, MinModeAtoms, MinModeTranslate
 from ase.calculators.abacus import Abacus, AbacusProfile
-import os, sys
-import numpy as np
 
 class AbacusDimer:
     """Customize Dimer calculation workflow by using ABACUS"""

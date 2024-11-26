@@ -1,15 +1,16 @@
 # Refined AutoNEB workflow by QuantumMisaka in 20231128
 # Parts of ATST-Tools
 
-import numpy as np
+
 import shutil
 import os
 import types
-from math import log
-from math import exp
+from math import log, exp
 from contextlib import ExitStack
 from pathlib import Path
 from warnings import warn
+
+import numpy as np
 
 from ase.io import Trajectory
 from ase.io import read

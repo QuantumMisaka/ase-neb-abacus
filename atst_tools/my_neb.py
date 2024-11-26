@@ -1160,7 +1160,7 @@ class NEBTools:
         with PdfPages(label + '.pdf') as pdf:
             for index in range(nebsteps):
                 sys.stdout.write('\rProcessing band {:10d} / {:10d}'
-                                 .format(index, nebsteps))
+                                 .format(index + 1, nebsteps))
                 sys.stdout.flush()
                 fig, ax = pyplot.subplots()
                 images = self.images[index * nimages:(index + 1) * nimages]

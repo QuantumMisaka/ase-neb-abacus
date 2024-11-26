@@ -1,10 +1,12 @@
 # using neb chain to get the main vibrate atoms
 # JamesMisaka in 2024-02-11
 
+import sys
+
 from ase.io import read
 from ase.mep.neb import NEBTools
 import numpy as np
-import sys
+
 
 norm = np.linalg.norm
 

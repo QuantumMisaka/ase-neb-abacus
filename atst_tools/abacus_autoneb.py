@@ -7,7 +7,7 @@ from ase.atoms import Atoms
 from ase.io import read, write
 from ase.calculators.abacus import Abacus, AbacusProfile
 #from ase.mep.autoneb import AutoNEB # official
-from my_autoneb import AutoNEB
+from atst_tools.my_autoneb import AutoNEB
 from ase.parallel import world, parprint, paropen
 from ase.optimize import FIRE, BFGS
 from ase.constraints import FixAtoms

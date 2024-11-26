@@ -35,9 +35,9 @@ class NEBPost():
         """Get TS structure from NEB chain"""
         raw_barrier = NEBTools(self.neb_chain).get_barrier(fit=False, raw=True)
         for atoms in self.neb_chain:
-            if atoms.get_potential_energy() == raw_barrier:
+            if atoms.get_potential_energy() == raw_barrier[0]:
                 write(f"{name}.cif", atoms, format="cif")
-                write(f"{name}.stru", atoms, format="stru")
+                write(f"{name}.stru", atoms, format="abacus")
                 print(f"TS structure is saved as {name}.cif and {name}.stru")
                 return
 

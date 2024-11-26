@@ -2,6 +2,7 @@
 # NEB calculation workflow by ASE-ABACUS
 # part of ATST-Tools scripts
 
+from typing import Optional
 import os
 from ase.calculators.abacus import Abacus, AbacusProfile
 from ase.optimize import FIRE, BFGS
@@ -114,7 +115,7 @@ class AbacusNEB:
         return neb
 
 
-    def run(self, optimizer=FIRE, fmax=0.05, climb=True, outfile="neb.traj", properties=["energy", "forces", "stress"]):
+    def run(self, optimizer=FIRE, fmax=0.05, climb=True, outfile="neb.traj", properties=["energy", "forces", "stress"], max_steps: Optional[int] = None):
         """Run Abacus NEB
 
         optimizer (Optimizer object): defaults to FIRE. BFGS, LBFGS, GPMin, MDMin and QuasiNewton are supported, recommend FIRE method
@@ -126,5 +127,8 @@ class AbacusNEB:
         # traj = Trajectory(outfile, 'w', neb, properties=properties) # cannot run for now
         traj = Trajectory(outfile, 'w', neb)
         opt = optimizer(neb, trajectory=traj)
-        opt.run(fmax)
+        if max_steps is not None and max_steps > 0:
+            opt.run(fmax=fmax, steps=max_steps)
+        else:
+            opt.run(fmax)
         print("----- NEB calculation finished -----")
